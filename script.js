@@ -1,6 +1,9 @@
-const baseURL = "https://2024-03-06.currency-api.pages.dev/v1/currencies/eur.json"
+const baseURL = "https://v6.exchangerate-api.com/v6/cb1012abfd816a975388e652/pair"
 
 const dropdowns = document.querySelectorAll(".dropdown select")
+const btn  = document.querySelector("form button")
+const fromCurr = document.querySelector(".from select")
+const toCurr = document.querySelector(".to select")
 
 for(let select of dropdowns){
     for(currCode in countryList){
@@ -28,3 +31,23 @@ const updateFlag = (element) => {
   let img = element.parentElement.querySelector("img")
   img.src = newSrc
 }
+
+btn.addEventListener('click', async (evt) => {
+  evt.preventDefault()
+  let amount = document.querySelector(".amount input")
+  let amtval = amount.value
+  if(amtval === ""|| amtval <1){
+    amtval =1;
+    amount.value =1;
+  }
+//   console.log(fromCurr.value,toCurr.value);
+  
+  const URL = `${baseURL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}`
+  let response = await fetch(URL)
+  let data = await response.json()
+  let rate = data[" "]
+  console.log(rate);
+  
+//   console.log(response)
+})
+

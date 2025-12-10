@@ -36,7 +36,6 @@ const countryList = {
   CRC: "CR",
   CUP: "CU",
   CVE: "CV",
-  CYP: "CY",
   CZK: "CZ",
   DJF: "DJ",
   DKK: "DK",
