@@ -66,7 +66,7 @@ form input{
 .select-container select{
     font-size: 1rem;
     background-color: #e5e8b6;
-    width: auto;
+    width: 70%;
     
 }
 .msg{
